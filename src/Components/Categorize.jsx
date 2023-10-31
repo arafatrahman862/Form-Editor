@@ -41,7 +41,6 @@ const Categorize = () => {
         setItemList([...itemList, { Category: "" }]);
     };
 
-    // console.log(inputList)
     return (
         <div className='mx-8 p-4 my-4 rounded-lg border-2 border-green-300'>
             <p className='py-3'>Question 1</p>
