@@ -6,6 +6,7 @@ import App from "../App";
 import Home from "../Layout/Home";
 import QuestionForm from "../Components/QuestionForm";
 import Answer from "../Components/Answer";
+import Navbar from "../Components/Navbar";
 
 export const router = createBrowserRouter([
     {
@@ -23,6 +24,10 @@ export const router = createBrowserRouter([
             {
                 path: "/answer",
                 element: <Answer></Answer>
+            },
+            {
+                path: "/navbar",
+                element: <Navbar></Navbar>
             },
            
         ]

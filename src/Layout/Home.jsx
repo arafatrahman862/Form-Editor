@@ -1,9 +1,11 @@
 import React from 'react';
 import QuestionForm from '../Components/QuestionForm';
 
+
 const Home = () => {
     return (
-        <div>
+        <div >
+            
            <QuestionForm></QuestionForm>
         </div>
     );
