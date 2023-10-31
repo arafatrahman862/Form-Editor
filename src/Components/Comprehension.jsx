@@ -2,19 +2,15 @@ import React, { useState } from 'react';
 import { useForm } from "react-hook-form"
 import MCQ from './MCQ';
 
-const Comprehension = () => {
+export default () => {
     const [value, setValue] = useState("")
-    const {
-        register,
-        handleSubmit,
+    const { register, handleSubmit, formState: { errors } } = useForm();
 
-        formState: { errors }
-    } = useForm();
     const onSubmit = (data) => {
-
         setValue(data)
         console.log(value.sentence);
     };
+
     return (
         <div className='mx-8 mb-8'>
             <div>
@@ -42,5 +38,3 @@ const Comprehension = () => {
         </div>
     );
 };
-
-export default Comprehension;
