@@ -1,6 +1,6 @@
 import React from 'react';
 
-const MCQ = () => {
+export default () => {
     return (
         <div className='border-2 border-blue-400 rounded-lg p-4'>
             <div className='flex items-center '>
@@ -29,5 +29,3 @@ const MCQ = () => {
         </div>
     );
 };
-
-export default MCQ;
