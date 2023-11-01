@@ -26,9 +26,9 @@ async function onSubmit() {
     }
 }
 
-export default () => <div>
+export default () => <div className='mb-8'>
     <Categorize />
     <Cloze />
     <Comprehension />
-    <button className='btn btn-primary mt-4  text-center' onClick={onSubmit}>submit</button>
+    <button className='btn btn-primary mt-4  text-center flex mx-auto' onClick={onSubmit}>submit</button>
 </div>

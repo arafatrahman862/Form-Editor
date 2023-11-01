@@ -28,7 +28,7 @@ export default () => {
 
     return (
         <div className='border-2 border-blue-400 rounded-lg p-4 mx-8'>
-            <div className='flex items-center'>
+            <div className='flex justify-between items-center'>
                 <p className='py-2 text-lg'>Question 2</p>
                 <div >
                     <p>Points</p>
