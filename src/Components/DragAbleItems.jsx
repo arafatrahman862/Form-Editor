@@ -16,7 +16,7 @@ export function DragAbleItems({ id, items, onDragEnd, child }) {
         onDragEnd(newItems);
     };
     return <>
-        {items.map((item, index) => <div draggable onDragStart={(e) => onDragStart(e, index)}
+        {items.map((item, index) => <div key={"_" + index} draggable onDragStart={(e) => onDragStart(e, index)}
             onDragOver={onDragOver}
             onDrop={(e) => onDrop(e, index)}
             children={child(item, index)} />
