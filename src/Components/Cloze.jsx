@@ -20,9 +20,31 @@ export default () => {
         }
     }
 
+    fetch('http://localhost:5000/clozer', {
+        method: 'POST',
+        headers: {
+            'content-type': 'application/json'
+        },
+        body: JSON.stringify(value)
+    })
+        .then(res => res.json())
+        .then(data => {
+            console.log(data)
+            if (data.insertedId) {
+                form.reset()
+            }
+        })
+
+
     return (
         <div className='border-2 border-blue-400 rounded-lg p-4 mx-8'>
-            <p className='py-2 text-lg'>Question 2</p>
+            <div className='flex items-center'>
+                <p className='py-2 text-lg'>Question 2</p>
+                <div >
+                    <p>Points</p>
+                    <input type="number"  placeholder="" className="input input-bordered w-[50%] " />
+                </div>
+            </div>
             <div>
                 <p>Preview*</p>
                 <p className='px-8 py-4 border-2 rounded-lg w-1/2'>{value.sentence}</p>
@@ -39,28 +61,28 @@ export default () => {
                     <input className="btn btn-primary mt-10 " type="submit" value="save" />
                     <button className="btn btn-primary mt-10" onClick={addSelectionText}>Mark Underline</button>
                 </div>
+
+                {
+                    !!options.length &&
+
+                    <ul class="menu bg-blue-400 w-56 rounded-box ">
+                        <DragAbleItems id={"clozeOptions"}
+                            items={options}
+                            onDragEnd={setOptions}
+                            child={(option, _index) => (<div className='flex gap-4 my-2'>
+                                <a >{option}</a>
+
+                                <input type="checkbox" {...register("options")} checked="checked" className="checkbox checkbox-accent" />
+                            </div>)}
+                        />
+
+                    </ul>
+
+
+
+                }
+                <input className='btn btn-primary mt-4  text-center ' type="submit" value="submit" />
             </form>
-            {
-                !!options.length && (
-                   <div className='flex'>
-                     <ul class="menu bg-green-400 w-56 rounded-box ">
-                    <DragAbleItems id={"clozeOptions"}
-                        items={options}
-                        onDragEnd={setOptions}
-                        child={(option, _index) => <li>
-                            <a>{option}</a>
-                        </li>}
-                    />
-                   
-                </ul>
-                <div className="form-control ">
-                    <label className="cursor-pointer label">
-                        <input type="checkbox" checked="checked" className="checkbox checkbox-accent" />
-                    </label>
-                </div>
-                   </div>
-                )
-            }
         </div>
     );
 };
@@ -72,4 +94,9 @@ function getSelectionText() {
     } else if (document.selection && document.selection.type != "Control") {
         return document.selection.createRange().text;
     }
+}
+
+
+async function send(uri, data) {
+    let req = await fetch(uri);
 }

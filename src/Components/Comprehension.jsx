@@ -12,11 +12,11 @@ export default () => {
     };
 
     return (
-        <div className='mx-8 mb-8'>
+        <form onSubmit={handleSubmit(onSubmit)} className='mx-8 mb-8'>
             <div>
                 <p className='text-lg py-2'>Question 3</p>
                 <div className='flex justify-between  items-cente w-full'>
-                    <form onSubmit={handleSubmit(onSubmit)} className='mb-4'>
+                    <div  className='mb-4'>
                         <div className='w-full'>
                             <div className="form-control w-full">
                                 <label className="label">
@@ -27,14 +27,14 @@ export default () => {
                             </div>
                             <input className="btn btn-primary mt-10 " type="submit" value="save" />
                         </div>
-                    </form>
+                    </div>
                     <div >
                         <p>Points</p>
-                        <input type="number" placeholder="" className="input input-bordered w-[50%] " />
+                        <input type="number" {...register("points")} placeholder="" className="input input-bordered w-[50%] " />
                     </div>
                 </div>
                 <MCQ></MCQ>
             </div>
-        </div>
+        </form>
     );
 };

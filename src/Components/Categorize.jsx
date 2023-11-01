@@ -41,6 +41,23 @@ const Categorize = () => {
         setItemList([...itemList, { Category: "" }]);
     };
 
+//     fetch('http://localhost:5000/categorize', {
+//         method: 'POST',
+//         headers: {
+//             'content-type': 'application/json'
+//         },
+//         body: JSON.stringify(user)
+//     })
+//     .then(res => res.json())
+//     .then(data => {
+//         console.log(data)
+//         if(data.insertedId){
+//             form.reset()
+//         }  
+//     })
+//    }
+
+
     return (
         <div className='mx-8 p-4 my-4 rounded-lg border-2 border-green-300'>
             <p className='py-3'>Question 1</p>
