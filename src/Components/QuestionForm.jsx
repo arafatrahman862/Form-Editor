@@ -18,12 +18,12 @@ export function setFormData(dist, path) {
 
 async function onSubmit() {
     console.log("FORM DATA:", JSON.stringify(FORM_DATA, null, 2));
-    // try {
-    //     let data = await send("/question", FORM_DATA);
-    //     console.log("Response:", data);
-    // } catch (error) {
-    //     console.error(error)
-    // }
+    try {
+        let data = await send("/question", FORM_DATA);
+        console.log("Response:", data);
+    } catch (error) {
+        console.error(error)
+    }
 }
 
 export default () => <div>
