@@ -14,7 +14,7 @@ export default () => {
     };
 
     const addSelectionText = () => {
-        let text = getSelectionText();
+        const text = getSelectionText();
         if (text) {
             setOptions([...options, text]);
         }
@@ -41,7 +41,9 @@ export default () => {
                 </div>
             </form>
             {
-                !!options.length && <ul class="menu bg-base-200 w-56 rounded-box">
+                !!options.length && (
+                   <div className='flex'>
+                     <ul class="menu bg-green-400 w-56 rounded-box ">
                     <DragAbleItems id={"clozeOptions"}
                         items={options}
                         onDragEnd={setOptions}
@@ -49,7 +51,15 @@ export default () => {
                             <a>{option}</a>
                         </li>}
                     />
+                   
                 </ul>
+                <div className="form-control ">
+                    <label className="cursor-pointer label">
+                        <input type="checkbox" checked="checked" className="checkbox checkbox-accent" />
+                    </label>
+                </div>
+                   </div>
+                )
             }
         </div>
     );
