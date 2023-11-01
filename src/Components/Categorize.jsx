@@ -41,21 +41,21 @@ const Categorize = () => {
         setItemList([...itemList, { Category: "" }]);
     };
 
-//     fetch('http://localhost:5000/categorize', {
-//         method: 'POST',
-//         headers: {
-//             'content-type': 'application/json'
-//         },
-//         body: JSON.stringify(user)
-//     })
-//     .then(res => res.json())
-//     .then(data => {
-//         console.log(data)
-//         if(data.insertedId){
-//             form.reset()
-//         }  
-//     })
-//    }
+    //     fetch('http://localhost:5000/categorize', {
+    //         method: 'POST',
+    //         headers: {
+    //             'content-type': 'application/json'
+    //         },
+    //         body: JSON.stringify(user)
+    //     })
+    //     .then(res => res.json())
+    //     .then(data => {
+    //         console.log(data)
+    //         if(data.insertedId){
+    //             form.reset()
+    //         }  
+    //     })
+    //    }
 
 
     return (
@@ -129,9 +129,9 @@ const Categorize = () => {
                 <div className='pb-8 '>
                     <p>Belongs To</p>
                     <select className="select select-accent w-full max-w-xs">
-                        <option disabled selected>Choose</option>
+                        <option disabled>Choose</option>
                         {
-                            inputList.map((x, _index) => <option>{x.Category}</option>)
+                            inputList.map((x, index) => <option key={"_" + index}>{x.Category}</option>)
                         }
                     </select>
                 </div>
