@@ -6,7 +6,6 @@ export default () => {
     const { Categorize } = FORM_DATA;
 
     const [inputList, setInputList] = useState([{ Category: "" }]);
-    Categorize["inputList"] = inputList;
 
     const handleInputChange = (e, index) => {
         const { name, value } = e.target;
@@ -28,8 +27,6 @@ export default () => {
     // ------------- Item -------------
     const [itemList, setItemList] = useState([{ Item: "" }]);
 
-    Categorize["itemList"] = itemList;
-
     const handleItemChange = (e, index) => {
         const { name, value } = e.target;
         const list = [...itemList];
@@ -47,6 +44,12 @@ export default () => {
         setItemList([...itemList, { Category: "" }]);
     };
 
+    // -----------------------------------
+    const [belongTo, setbelongTo] = useState(0);
+
+    Categorize["inputList"] = inputList;
+    Categorize["itemList"] = itemList;
+    Categorize["Belong"] = inputList[belongTo];
 
     return (
         <div className='mx-8 p-4 my-4 rounded-lg border-2 border-green-300'>
@@ -118,10 +121,10 @@ export default () => {
                 </div>
                 <div className='pb-8 '>
                     <p>Belongs To</p>
-                    <select className="select select-accent w-full max-w-xs">
+                    <select className="select select-accent w-full max-w-xs" onChange={e => setbelongTo(e.currentTarget.selectedIndex - 1)}>
                         <option disabled>Choose</option>
                         {
-                            inputList.map((x, index) => <option key={"_" + index}>{x.Category}</option>)
+                            inputList.map((x, index) => <option key={x.Category + index} value={x.Category}>{x.Category}</option>)
                         }
                     </select>
                 </div>
