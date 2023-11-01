@@ -1,8 +1,12 @@
 import React, { useState } from 'react';
 import { DragAbleItems } from './DragAbleItems';
+import { FORM_DATA, setFormData } from "./QuestionForm";
 
-const Categorize = () => {
+export default () => {
+    const { Categorize } = FORM_DATA;
+
     const [inputList, setInputList] = useState([{ Category: "" }]);
+    Categorize["inputList"] = inputList;
 
     const handleInputChange = (e, index) => {
         const { name, value } = e.target;
@@ -24,6 +28,8 @@ const Categorize = () => {
     // ------------- Item -------------
     const [itemList, setItemList] = useState([{ Item: "" }]);
 
+    Categorize["itemList"] = itemList;
+
     const handleItemChange = (e, index) => {
         const { name, value } = e.target;
         const list = [...itemList];
@@ -41,28 +47,12 @@ const Categorize = () => {
         setItemList([...itemList, { Category: "" }]);
     };
 
-    //     fetch('http://localhost:5000/categorize', {
-    //         method: 'POST',
-    //         headers: {
-    //             'content-type': 'application/json'
-    //         },
-    //         body: JSON.stringify(user)
-    //     })
-    //     .then(res => res.json())
-    //     .then(data => {
-    //         console.log(data)
-    //         if(data.insertedId){
-    //             form.reset()
-    //         }  
-    //     })
-    //    }
-
 
     return (
         <div className='mx-8 p-4 my-4 rounded-lg border-2 border-green-300'>
             <p className='py-3'>Question 1</p>
             <div className='flex gap-4'>
-                <input type="text" placeholder="Descripton(Optional)" className="input input-bordered w-[80%] " />
+                <input type="text" placeholder="Descripton(Optional)" className="input input-bordered w-[80%]" onChange={setFormData(Categorize, "Descripton")} />
                 <input type="file" className="file-input file-input-bordered file-input-success w-full max-w-xs" />
             </div>
 
@@ -71,7 +61,7 @@ const Categorize = () => {
                     <p className='text-lg'>Categories</p>
                     <div >
                         <p>Points</p>
-                        <input type="number" placeholder="" className="input input-bordered w-[50%] " />
+                        <input type="number" placeholder="" className="input input-bordered w-[50%]" onChange={setFormData(Categorize, "Points")} />
                     </div>
                 </div>
 
@@ -139,7 +129,5 @@ const Categorize = () => {
         </div>
     );
 };
-
-export default Categorize;
 
 

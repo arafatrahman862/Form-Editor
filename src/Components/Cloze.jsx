@@ -1,25 +1,22 @@
 import React, { useState } from 'react';
 import { useForm } from "react-hook-form"
 import { DragAbleItems } from './DragAbleItems';
-import { send } from '../utils';
+import { FORM_DATA, setFormData } from './QuestionForm';
 
 export default () => {
     const [value, setValue] = useState("");
     const [options, setOptions] = useState([]);
+
+    const { Cloze } = FORM_DATA;
+
+    Cloze["sentence"] = value.sentence;
+    Cloze["options"] = options;
 
     const { register, handleSubmit } = useForm();
 
     const onSave = (data) => {
         setValue(data)
         console.log('Save:', value.sentence);
-    };
-
-    const onSubmit = () => {
-        send("/clozer", { data: value.sentence, options })
-            .then(data => {
-                console.log("Response:", data);
-            })
-            .catch(console.log)
     };
 
     const markUnderline = () => {
@@ -35,7 +32,7 @@ export default () => {
                 <p className='py-2 text-lg'>Question 2</p>
                 <div >
                     <p>Points</p>
-                    <input type="number" placeholder="" className="input input-bordered w-[50%] " />
+                    <input type="number" placeholder="" className="input input-bordered w-[50%]" onChange={setFormData(Cloze, "Points")} />
                 </div>
             </div>
             <div>
@@ -66,8 +63,6 @@ export default () => {
                         />
                     </ul>
                 }
-                {/* <input className='btn btn-primary mt-4  text-center' type="submit" value="submit" /> */}
-                <button className='btn btn-primary mt-4  text-center' onClick={onSubmit}>submit</button>
             </form>
         </div>
     );
