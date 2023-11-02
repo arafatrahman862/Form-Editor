@@ -1,5 +1,5 @@
 export let ENDPOINT = {
-    dist: "http://localhost:5000"
+    dist: "https://job-task-server-dy1ytfbla-arafatrahman862.vercel.app"
 }
 
 export async function send(uri, data) {

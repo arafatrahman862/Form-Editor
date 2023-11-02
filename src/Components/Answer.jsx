@@ -13,7 +13,7 @@ export default () => {
     const question = questions[questionIndex];
 
     useEffect(() => {
-        fetch('http://localhost:5000/question')
+        fetch('https://job-task-server-dy1ytfbla-arafatrahman862.vercel.app/question')
             .then(res => res.json())
             .then(setQuestions)
             .catch(console.error)
