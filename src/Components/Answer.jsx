@@ -4,6 +4,7 @@ import SecondQuestionAnswer from './SecondQuestionAnswer';
 import ThirdQuestionAnswer from './ThirdQuestionAnswer';
 
 export const ANSWER = {
+    Categorize: {},
     Comprehension: {}
 }
 
