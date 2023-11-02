@@ -60,9 +60,9 @@ export default ({ FORM_DATA }) => {
             </div>
 
             <div>
-                <div className='flex justify-between mt-4 items-center'>
+                <div className='flex md:justify-between  mt-4 items-center'>
                     <p className='text-lg'>Categories</p>
-                    <div >
+                    <div className='mx-4'>
                         <p>Points</p>
                         <input type="number" placeholder="" className="input input-bordered w-[50%]" onChange={setFormData(Categorize, "Points")} />
                     </div>

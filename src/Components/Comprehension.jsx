@@ -20,7 +20,7 @@ export default ({ FORM_DATA }) => {
                             </div>
                         </div>
                     </div>
-                    <div >
+                    <div className='mx-4'>
                         <p>Points</p>
                         <input type="number" placeholder="" className="input input-bordered w-[50%]" onChange={setFormData(Comprehension, "Points")} />
                     </div>

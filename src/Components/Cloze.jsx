@@ -48,8 +48,10 @@ export default ({ FORM_DATA }) => {
                         </label>
                         <input type="text" name="sentence" {...register("sentence")} placeholder="Underline the words here to convert them into blanks" className="input input-bordered " />
                     </div>
-                    <input className="btn btn-primary mt-10 " type="submit" value="save" />
+                   <div >
+                   <input className="btn btn-primary mt-10 mr-3" type="submit" value="save" />
                     <button className="btn btn-primary mt-10" onClick={markUnderline}>Mark Underline</button>
+                   </div>
                 </div>
                 {
                     !!options.length && <ul className="menu bg-blue-400 w-56 rounded-box ">

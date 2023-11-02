@@ -16,7 +16,7 @@ export default ({ question }) => {
             <p className='p-2'>Question 1</p>
             <div className='flex items-center justify-center gap-3'>
                 <div>
-                    <div className='flex gap-8 '>
+                    <div className='flex md:flex-row flex-col gap-8 '>
                         {
                             itemList.map((input, index) => <div draggable className='border-2 rounded-lg px-8 py-4 bg-green-400 border-green-400' key={index} onDragStart={(e) => {
                                 e.dataTransfer.setData("itemList", index);
@@ -26,7 +26,7 @@ export default ({ question }) => {
                         }
                     </div>
                     <div className='flex gap-8 pt-4'>
-                        <div className='flex gap-8'>
+                        <div className='flex md:flex-row flex-col gap-8'>
                             {
                                 catalogList.map((input, index) => <div
                                     key={index}
