@@ -8,7 +8,7 @@ export default ({ question }) => {
                 <div>
                     <div className='flex gap-8 '>
                         {
-                            question?.Categorize.itemList.map((input, index) => <div className='border-2 rounded-lg px-8 py-4 bg-green-400 border-green-400' key={index}>
+                            question?.Categorize.itemList.map((input, index) => <div draggable className='border-2 rounded-lg px-8 py-4 bg-green-400 border-green-400' key={index} onDragOver={(e) => { }}>
                                 <p>{input.Item}</p>
                             </div>)
                         }
