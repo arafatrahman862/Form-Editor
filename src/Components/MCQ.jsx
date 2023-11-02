@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
-import { FORM_DATA, setFormData } from "./QuestionForm";
+import React from 'react';
+import { setFormData } from "./QuestionForm";
 
-export default () => {
+export default ({ FORM_DATA }) => {
     let { Comprehension } = FORM_DATA;
     return <div className='border-2 border-blue-400 rounded-lg p-4'>
         <div className='flex items-center '>
