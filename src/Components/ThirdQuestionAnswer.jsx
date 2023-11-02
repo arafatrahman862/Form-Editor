@@ -13,19 +13,19 @@ export default ({ question }) => <div className='border-2 border-green-400 mt-8 
             <p>According to the passage, one key feature of the water cycle is that:</p>
             <div>
                 <div className='flex gap-3 my-3'>
-                    <input type="checkbox" checked="checked" className="checkbox checkbox-accent" />
+                    <input type="radio" name="radio-4" className="radio radio-accent" />
                     <p>{question?.Comprehension.A}</p>
                 </div>
                 <div className='flex gap-3 my-3'>
-                    <input type="checkbox" checked="checked" className="checkbox checkbox-accent" />
+                    <input type="radio" name="radio-4" className="radio radio-accent" />
                     <p>{question?.Comprehension.B}</p>
                 </div>
                 <div className='flex gap-3 my-3'>
-                    <input type="checkbox" checked="checked" className="checkbox checkbox-accent" />
+                    <input type="radio" name="radio-4" className="radio radio-accent" />
                     <p>{question?.Comprehension.C}</p>
                 </div>
                 <div className='flex gap-3 my-3'>
-                    <input type="checkbox" checked="checked" className="checkbox checkbox-accent" />
+                    <input type="radio" name="radio-4" className="radio radio-accent" />
                     <p>{question?.Comprehension.D}</p>
                 </div>
             </div>
