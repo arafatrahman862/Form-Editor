@@ -1,6 +1,6 @@
 import React from 'react';
-import { useEffect } from 'react';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import { ANSWER } from "./Answer";
 
 export default ({ question }) => {
     let [catalogList, setcatalogList] = useState([]);
@@ -9,7 +9,9 @@ export default ({ question }) => {
     useEffect(() => {
         setcatalogList(question?.Categorize.inputList);
         setItemList(question?.Categorize.itemList);
-    }, [question])
+    }, [question]);
+
+    ANSWER.Categorize["Answer"] = catalogList;
 
     return (
         <div className='border-2 border-green-400 mt-8 rounded-lg w-full pb-4'>
