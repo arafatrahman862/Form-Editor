@@ -1,8 +1,8 @@
 import React from 'react';
 import MCQ from './MCQ';
-import { FORM_DATA, setFormData } from "./QuestionForm";
+import { setFormData } from "./QuestionForm";
 
-export default () => {
+export default ({ FORM_DATA }) => {
     const { Comprehension } = FORM_DATA;
     return (
         <form className='mx-8 mb-8'>
@@ -25,7 +25,7 @@ export default () => {
                         <input type="number" placeholder="" className="input input-bordered w-[50%]" onChange={setFormData(Comprehension, "Points")} />
                     </div>
                 </div>
-                <MCQ></MCQ>
+                <MCQ FORM_DATA={FORM_DATA} />
             </div>
         </form>
     );

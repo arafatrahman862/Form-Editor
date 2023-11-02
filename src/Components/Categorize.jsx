@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { DragAbleItems } from './DragAbleItems';
-import { FORM_DATA, setFormData } from "./QuestionForm";
+import { setFormData } from "./QuestionForm";
 
-export default () => {
+export default ({ FORM_DATA }) => {
     const { Categorize } = FORM_DATA;
 
     const [inputList, setInputList] = useState([{ Category: "" }]);
