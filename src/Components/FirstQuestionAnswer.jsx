@@ -1,9 +1,15 @@
 import React from 'react';
+import { useEffect } from 'react';
 import { useState } from 'react';
 
 export default ({ question }) => {
-    let [catalogList, setcatalogList] = useState(question?.Categorize.inputList);
-    let [itemList, setItemList] = useState(question?.Categorize.itemList);
+    let [catalogList, setcatalogList] = useState([]);
+    let [itemList, setItemList] = useState([]);
+
+    useEffect(() => {
+        setcatalogList(question?.Categorize.inputList);
+        setItemList(question?.Categorize.itemList);
+    }, [question])
 
     return (
         <div className='border-2 border-green-400 mt-8 rounded-lg w-full pb-4'>
