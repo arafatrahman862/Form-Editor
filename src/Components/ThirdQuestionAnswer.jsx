@@ -1,4 +1,6 @@
 import React from 'react';
+import { ANSWER } from "./Answer";
+import { setFormData } from "./QuestionForm";
 
 export default ({ question }) => <div className='border-2 border-green-400 mt-8 rounded-lg w-full'>
     <div>
@@ -13,19 +15,19 @@ export default ({ question }) => <div className='border-2 border-green-400 mt-8 
             <p>According to the passage, one key feature of the water cycle is that:</p>
             <div>
                 <div className='flex gap-3 my-3'>
-                    <input type="radio" name="radio-4" className="radio radio-accent" />
+                    <input type="radio" name="radio-4" className="radio radio-accent" value={question?.Comprehension.A} onChange={setFormData(ANSWER.Comprehension, "selected")} />
                     <p>{question?.Comprehension.A}</p>
                 </div>
                 <div className='flex gap-3 my-3'>
-                    <input type="radio" name="radio-4" className="radio radio-accent" />
+                    <input type="radio" name="radio-4" className="radio radio-accent" value={question?.Comprehension.B} onChange={setFormData(ANSWER.Comprehension, "selected")} />
                     <p>{question?.Comprehension.B}</p>
                 </div>
                 <div className='flex gap-3 my-3'>
-                    <input type="radio" name="radio-4" className="radio radio-accent" />
+                    <input type="radio" name="radio-4" className="radio radio-accent" value={question?.Comprehension.C} onChange={setFormData(ANSWER.Comprehension, "selected")} />
                     <p>{question?.Comprehension.C}</p>
                 </div>
                 <div className='flex gap-3 my-3'>
-                    <input type="radio" name="radio-4" className="radio radio-accent" />
+                    <input type="radio" name="radio-4" className="radio radio-accent" value={question?.Comprehension.D} onChange={setFormData(ANSWER.Comprehension, "selected")} />
                     <p>{question?.Comprehension.D}</p>
                 </div>
             </div>

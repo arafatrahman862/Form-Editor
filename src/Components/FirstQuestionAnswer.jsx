@@ -1,6 +1,10 @@
 import React from 'react';
+import { useState } from 'react';
 
 export default ({ question }) => {
+    let [catalogList, setcatalogList] = useState(question?.Categorize.inputList);
+    let [itemList, setItemList] = useState(question?.Categorize.itemList);
+
     return (
         <div className='border-2 border-green-400 mt-8 rounded-lg w-full pb-4'>
             <p className='p-2'>Question 1</p>
@@ -8,7 +12,9 @@ export default ({ question }) => {
                 <div>
                     <div className='flex gap-8 '>
                         {
-                            question?.Categorize.itemList.map((input, index) => <div draggable className='border-2 rounded-lg px-8 py-4 bg-green-400 border-green-400' key={index} onDragOver={(e) => { }}>
+                            itemList.map((input, index) => <div draggable className='border-2 rounded-lg px-8 py-4 bg-green-400 border-green-400' key={index} onDragStart={(e) => {
+                                e.dataTransfer.setData("itemList", index);
+                            }}>
                                 <p>{input.Item}</p>
                             </div>)
                         }
@@ -16,8 +22,26 @@ export default ({ question }) => {
                     <div className='flex gap-8 pt-4'>
                         <div className='flex gap-8'>
                             {
-                                question?.Categorize.inputList.map((input, index) => <div className='border-2 rounded-lg  bg-blue-400 border-blue-400 w-full h-36' key={index}>
+                                catalogList.map((input, index) => <div
+                                    key={index}
+                                    className='border-2 rounded-lg  bg-blue-400 border-blue-400 w-full h-36'
+                                    onDragOver={e => e.preventDefault()}
+                                    onDrop={e => {
+                                        let itemIndex = e.dataTransfer.getData("itemList");
+                                        let v = itemList[itemIndex];
+                                        catalogList[index]["Items"] ??= [];
+                                        catalogList[index]["Items"].push(v.Item);
+                                        setcatalogList([...catalogList]);
+
+                                        let newItemList = itemList.filter((_, i) => itemIndex != i);
+                                        console.log(itemIndex);
+                                        setItemList(newItemList);
+                                    }}
+                                >
                                     <p className='border-2 m-2 px-6 rounded-lg border-green-400' >{input.Category}</p>
+                                    {
+                                        input?.Items?.map((v, i) => <p key={i} className='border-2 m-2 px-6 rounded-lg border-red-400' >{v}</p>)
+                                    }
                                 </div>)
                             }
                         </div>
@@ -27,3 +51,4 @@ export default ({ question }) => {
         </div>
     );
 };
+
